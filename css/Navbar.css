@@ -1,0 +1,38 @@
+.navbar {
+  background-color: #17696c;
+  display: grid;
+  grid-template-columns: 40vw 40vw;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.navbar a {
+  text-decoration: none;
+  padding: 15px;
+  color: wheat;
+  text-shadow: black 1px 1px 50px;
+}
+#index {
+  grid-column: 1/2;
+  justify-self: end;
+}
+#sura {
+  grid-column: 2/3;
+  justify-self: start;
+}
+.navbar a:hover {
+  background-color: hsl(182, 65%, 20%);
+}
+.navbar a:visited {
+  color: wheat;
+}
+.checkbox {
+  grid-column: 3/4;
+}
+#darkss {
+  user-select: none;
+  text-shadow: black 1px 1px 50px;
+}

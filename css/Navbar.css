@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #17696c;
+  background-color: white;
   display: grid;
   grid-template-columns: 40vw 40vw;
   justify-content: center;
@@ -12,7 +12,7 @@
 .navbar a {
   text-decoration: none;
   padding: 15px;
-  color: wheat;
+  color: black;
   text-shadow: black 1px 1px 50px;
 }
 #index {
@@ -24,10 +24,10 @@
   justify-self: start;
 }
 .navbar a:hover {
-  background-color: hsl(182, 65%, 20%);
+  background-color: hsl(0, 0%, 90%);
 }
 .navbar a:visited {
-  color: wheat;
+  color: black;
 }
 .checkbox {
   grid-column: 3/4;

@@ -1,0 +1,30 @@
+body {
+  background-image: url(/imgs/background4x.png);
+  background-size: cover;
+  margin: 0;
+}
+
+.main {
+  padding-top: 20px;
+  padding-left: 20px;
+  display: grid;
+  grid-template-columns: 35vh auto 10vw ;
+  grid-template-rows: 12vh 17vw 10vw;
+}
+
+.title{
+ grid-column: 2/3;
+ grid-row: 2/3;
+}
+
+.paragraph{
+  grid-column: 2/3;
+  grid-row: 3/4;
+  font-size: 30px;
+  font-weight: 400;
+  text-shadow: 2px 2px black;
+  color: white;
+}
+
+
+

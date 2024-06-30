@@ -12,8 +12,9 @@ body {
   text-decoration: none;
 }
 .suraindex li {
-  list-style: none;
+  /*list-style: none;*/
   font-size: 2em;
+  font-weight: 500;
   color: wheat;
   text-shadow: black 1px 1px 50px;
 }

@@ -14,13 +14,13 @@ body {
 .suraindex li {
   /*list-style: none;*/
   font-size: 2em;
-  font-weight: 500;
+  font-weight: bold;
   color: wheat;
   text-shadow: black 1px 1px 50px;
 }
 .suraindex a:visited {
   color: wheat;
-  font-style: normal;
+  font-style: bold;
   text-decoration: none;
 }
 .suraindex a:hover {

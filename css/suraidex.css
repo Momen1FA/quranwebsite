@@ -1,3 +1,9 @@
+body {
+  background-image: url(../background4x.png);
+  background-size: cover;
+  background-color: #1F5E3B;
+  margin: 0;
+}
 .suraindex h3 {
   color: wheat;
   text-shadow: black 1px 1px 50px;

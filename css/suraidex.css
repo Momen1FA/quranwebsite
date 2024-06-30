@@ -12,11 +12,12 @@ body {
   text-decoration: none;
 }
 .suraindex li {
-  /*list-style: none;*/
+  list-style: none;
   font-size: 2em;
   font-weight: 900;
   color: wheat;
   text-shadow: black 1px 1px 50px;
+  list;
 }
 .suraindex a:visited {
   color: wheat;

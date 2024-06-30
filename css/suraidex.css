@@ -17,7 +17,8 @@ body {
   font-weight: 900;
   color: wheat;
   text-shadow: black 1px 1px 50px;
-  list;
+  display: inline;
+  margin-bottom: 3px;
 }
 .suraindex a:visited {
   color: wheat;

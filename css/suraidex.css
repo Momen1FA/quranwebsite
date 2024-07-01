@@ -1,12 +1,16 @@
 body {
-  background-image: url(../background4x.png);
+  /*background-image: url(../background4x.png);*/
   background-size: cover;
-  background-color: #1F5E3B;
+  background-color: #181a1b;
   margin: 0;
+}
+.main{
+  margin-top: 60px;
+  margin-left: -10px;
 }
 .suraindex h3 {
   color: wheat;
-  text-shadow: black 1px 1px 50px;
+  text-shadow: #17696c 1px 1px 30px;
 }
 .suraindex a {
   text-decoration: none;
@@ -14,12 +18,14 @@ body {
 .suraindex li {
   list-style: none;
   font-size: 2em;
+  font-weight: 900;
   color: wheat;
-  text-shadow: black 1px 1px 50px;
+  text-shadow: #17696c 2px 2px 30px; 
+  margin-bottom: 3px;
 }
 .suraindex a:visited {
   color: wheat;
-  font-style: normal;
+  font-style: 900;
   text-decoration: none;
 }
 .suraindex a:hover {

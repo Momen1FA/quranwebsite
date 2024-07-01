@@ -1,5 +1,5 @@
 body {
-  /*background-image: url(../background4x.png);*/
+  background-image: url(../blue.png);
   background-size: cover;
   background-color: #181a1b;
   margin: 0;
@@ -16,7 +16,7 @@ body {
   text-decoration: none;
 }
 .suraindex li {
-  list-style: none;
+  list-style-image: url(../quran.jpg);
   font-size: 2em;
   font-weight: 900;
   color: wheat;

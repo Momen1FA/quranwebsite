@@ -12,23 +12,23 @@ body {
   grid-column: 1/2;
   justify-content: stretch;
   border-right: 1px solid;
-  border-color: #17696c;
+  border-color: #184B8A;
   padding-right: 2vw;
   font-family: Arial, Helvetica, sans-serif;
 }
 .aside h1 {
   color: wheat;
-  text-shadow: #17696c 1px 1px 30px;
+  text-shadow: #184B8A 1px 1px 30px;
   font-weight: bold;
 }
 .aside h2 {
   color: wheat;
-  text-shadow: #17696c 1px 1px 30px;
+  text-shadow: #184B8A 1px 1px 30px;
 }
 .aside p {
   color: wheat;
   font-size: 1.4em;
-  text-shadow: #17696c 1px 1px 10px;
+  text-shadow: #184B8A 1px 1px 10px;
   text-align: start;
 }
 .player {
@@ -36,7 +36,7 @@ body {
   padding-top: 50px;
 }
 .player iframe {
-  box-shadow: #17696c 1px 1px 20px;
+  box-shadow: #184B8A 1px 1px 20px;
   height: 60vh;
   width: 70vw;
 }

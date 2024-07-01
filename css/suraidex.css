@@ -6,7 +6,7 @@ body {
 }
 .main{
   margin-top: 60px;
-  margin-left: -10px;
+  margin-left: 20px;
 }
 .suraindex h3 {
   color: wheat;
@@ -16,12 +16,11 @@ body {
   text-decoration: none;
 }
 .suraindex li {
-  list-style-image:square inside url(../quran.jpg);
+  list-style-image:url(../quran-w.png);
   font-size: 2em;
   font-weight: 900;
   color: wheat;
   text-shadow: #17696c 2px 2px 30px; 
-  margin-bottom: 3px;
 }
 .suraindex a:visited {
   color: wheat;

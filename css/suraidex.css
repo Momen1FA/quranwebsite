@@ -1,12 +1,15 @@
 body {
   background-image: url(../blue.png);
  /* background-size: cover;*/
+  /*background-image: url(../background4x.png);*/
+  background-size: cover;
   background-color: #181a1b;
   margin: 0;
 }
 .main{
   margin-top: 60px;
   margin-left: 20px;
+  margin-left: -10px;
 }
 .suraindex h3 {
   color: wheat;
@@ -21,6 +24,8 @@ body {
   font-weight: 900;
   color: wheat;
   text-shadow: #17696c 2px 2px 30px; 
+  margin-bottom: 3px;
+
 }
 .suraindex a:visited {
   color: wheat;

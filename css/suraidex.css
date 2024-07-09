@@ -17,6 +17,7 @@ body {
 }
 .suraindex a {
   text-decoration: none;
+  color: wheat;
 }
 .suraindex li {
   list-style-image:url(../quran-w.png);

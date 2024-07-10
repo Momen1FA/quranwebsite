@@ -6,6 +6,25 @@
   <title>Hauptseite</title>
   <link rel="stylesheet" href="./css/Navbar.css">
   <link rel="stylesheet" href="./css/homepage.css">
+  <style>
+    /* Example of basic responsiveness */
+    @media screen and (max-width: 768px) {
+      .navbar {
+        text-align: center; /* Center align links on smaller screens */
+      }
+      .navbar a {
+        display: block;
+        padding: 10px 0;
+      }
+      .title {
+        width: 100%; /* Make the title image full width */
+        height: auto; /* Maintain aspect ratio */
+      }
+      .paragraph {
+        font-size: 14px; /* Decrease font size for smaller screens */
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="navbar" id="navbar">
@@ -16,9 +35,11 @@
   <div class="main">
     <img src="./imgs/bitmap.png" alt="title" class="title">
     <div class="paragraph">
-      <p>Die kompletten Suren des Heiligen Quran ins Deutsche Ubersetzt, Sehen Sie sich die Ubersetzung als Video an</p>
+      <p>Die kompletten Suren des Heiligen Quran ins Deutsche Übersetzt. Sehen Sie sich die Übersetzung als Video an.</p>
     </div>
   </div>
 </body>
 </html>
+
+
 

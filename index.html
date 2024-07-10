@@ -11,16 +11,14 @@
       position: relative;
     }
 
-    .mist-effect {
+    .word-popup {
       position: absolute;
-      width: 50px; /* Adjust size of the mist effect */
-      height: 50px; /* Adjust size of the mist effect */
-      background-color: rgba(255, 0, 0, 0.3);
-      border-radius: 50%; /* Ensures mist is circular */
-      transform: translate(-50%, -50%);
+      font-size: 16px;
+      color: red; /* Adjust color of the words */
       pointer-events: none;
-      z-index: 9999; /* Ensures mist appears above other content */
       display: none; /* Initially hidden */
+      white-space: nowrap; /* Prevents words from wrapping */
+      z-index: 9999; /* Ensures words appear above other content */
     }
   </style>
 </head>
@@ -38,21 +36,34 @@
   </div>
 
   <script>
+    // Array of words to display
+    var words = ['Quran', 'Auf', 'Deutsch'];
+
     document.addEventListener('click', function(event) {
-      createMistEffect(event.clientX, event.clientY);
+      createWordPopup();
     });
 
-    function createMistEffect(x, y) {
-      var mistEffect = document.createElement('div');
-      mistEffect.className = 'mist-effect';
-      mistEffect.style.left = x + 'px';
-      mistEffect.style.top = y + 'px';
-      document.body.appendChild(mistEffect);
+    function createWordPopup() {
+      // Create a new word element
+      var wordElement = document.createElement('div');
+      wordElement.className = 'word-popup';
+      var randomIndex = Math.floor(Math.random() * words.length);
+      wordElement.textContent = words[randomIndex];
+      
+      // Set random position
+      var x = Math.random() * (window.innerWidth - 100); // Adjust position within window width
+      var y = Math.random() * (window.innerHeight - 30); // Adjust position within window height
+      wordElement.style.left = x + 'px';
+      wordElement.style.top = y + 'px';
 
-      // Remove the mist effect after a short delay
+      // Append to body and make visible
+      document.body.appendChild(wordElement);
+      wordElement.style.display = 'block';
+
+      // Remove after a short delay
       setTimeout(function() {
-        mistEffect.remove();
-      }, 1000); // Adjust the delay as needed
+        wordElement.remove();
+      }, 2000); // Adjust the delay as needed
     }
   </script>
 </body>

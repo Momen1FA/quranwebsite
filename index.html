@@ -6,21 +6,6 @@
   <title>Hauptseite</title>
   <link rel="stylesheet" href="./css/Navbar.css">
   <link rel="stylesheet" href="./css/homepage.css">
-  <style>
-    body {
-      position: relative;
-    }
-
-    .word-popup {
-      position: absolute;
-      font-size: 16px;
-      color: red; /* Adjust color of the words */
-      pointer-events: none;
-      display: none; /* Initially hidden */
-      white-space: nowrap; /* Prevents words from wrapping */
-      z-index: 9999; /* Ensures words appear above other content */
-    }
-  </style>
 </head>
 <body>
   <div class="navbar" id="navbar">
@@ -34,37 +19,6 @@
       <p>Die kompletten Suren des Heiligen Quran ins Deutsche Ubersetzt, Sehen Sie sich die Ubersetzung als Video an</p>
     </div>
   </div>
-
-  <script>
-    // Array of words to display
-    var words = ['Quran', 'Auf', 'Deutsch'];
-
-    document.addEventListener('click', function(event) {
-      createWordPopup();
-    });
-
-    function createWordPopup() {
-      // Create a new word element
-      var wordElement = document.createElement('div');
-      wordElement.className = 'word-popup';
-      var randomIndex = Math.floor(Math.random() * words.length);
-      wordElement.textContent = words[randomIndex];
-      
-      // Set random position
-      var x = Math.random() * (window.innerWidth - 100); // Adjust position within window width
-      var y = Math.random() * (window.innerHeight - 30); // Adjust position within window height
-      wordElement.style.left = x + 'px';
-      wordElement.style.top = y + 'px';
-
-      // Append to body and make visible
-      document.body.appendChild(wordElement);
-      wordElement.style.display = 'block';
-
-      // Remove after a short delay
-      setTimeout(function() {
-        wordElement.remove();
-      }, 2000); // Adjust the delay as needed
-    }
-  </script>
 </body>
 </html>
+

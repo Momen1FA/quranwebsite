@@ -14,20 +14,43 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      background: linear-gradient(rgba(0, 0, 255, 0.2), rgba(255, 255, 255, 0.2));
-      background-size: cover;
+      overflow: hidden;
+      z-index: -1;
+    }
+    
+    .mist-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 0, 255, 0.3) 0%, rgba(255, 255, 255, 0) 80%);
+      filter: blur(150px);
+      opacity: 0.7;
       animation: moveMist 60s linear infinite;
-      opacity: 0.5;
+    }
+
+    .mist-layer:nth-child(2) {
+      animation-duration: 90s;
+      animation-direction: reverse;
+    }
+
+    .mist-layer:nth-child(3) {
+      animation-duration: 120s;
     }
 
     @keyframes moveMist {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-1000px); }
+      0% { transform: translate(-50%, -50%); }
+      100% { transform: translate(-45%, -45%); }
     }
   </style>
 </head>
 <body>
-  <div class="blue-mist"></div>
+  <div class="blue-mist">
+    <div class="mist-layer"></div>
+    <div class="mist-layer"></div>
+    <div class="mist-layer"></div>
+  </div>
   <div class="navbar" id="navbar">
     <a href="index.html" id="index">Hauptseite</a>
     <a href="sura.html" id="sura">Suren-Indizierung</a>
@@ -41,6 +64,7 @@
   </div>
 </body>
 </html>
+
 
 
 

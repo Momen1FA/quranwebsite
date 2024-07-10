@@ -7,21 +7,59 @@
   <link rel="stylesheet" href="./css/Navbar.css">
   <link rel="stylesheet" href="./css/homepage.css">
   <style>
-    /* Example of basic responsiveness */
+    /* Basic reset and adjustments for mobile */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      background-color: #333;
+      overflow: hidden;
+      text-align: center; /* Center align links on smaller screens */
+    }
+
+    .navbar a {
+      display: inline-block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .main {
+      padding: 20px;
+      text-align: center; /* Center align content */
+    }
+
+    .title {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .paragraph {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* Responsive adjustments */
     @media screen and (max-width: 768px) {
-      .navbar {
-        text-align: center; /* Center align links on smaller screens */
-      }
       .navbar a {
         display: block;
         padding: 10px 0;
       }
       .title {
-        width: 100%; /* Make the title image full width */
-        height: auto; /* Maintain aspect ratio */
+        width: 100%;
+        height: auto;
       }
       .paragraph {
-        font-size: 14px; /* Decrease font size for smaller screens */
+        font-size: 14px;
       }
     }
   </style>
@@ -40,6 +78,7 @@
   </div>
 </body>
 </html>
+
 
 
 

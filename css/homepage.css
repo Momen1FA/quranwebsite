@@ -56,6 +56,32 @@ body {
 .paragraph {
   font-size: 16px;
 }
+.main {
+  padding: 20px;
+  text-align: center; /* Center align content */
+}
+
+.title {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Ensure image is displayed as block level for responsiveness */
+  margin: 0 auto; /* Center align image */
+}
+
+.paragraph {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    width: 100%;
+    height: auto;
+  }
+  .paragraph {
+    font-size: 14px;
+  }
+}
 
 
 

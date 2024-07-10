@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="./css/Navbar.css">
   <link rel="stylesheet" href="./css/homepage.css">
   <style>
-    /* Basic reset and adjustments for mobile */
+    /* Basic reset and adjustments */
     body {
       margin: 0;
       padding: 0;
@@ -17,11 +17,11 @@
     .navbar {
       background-color: #333;
       overflow: hidden;
-      text-align: center; /* Center align links on smaller screens */
     }
 
     .navbar a {
-      display: inline-block;
+      float: left;
+      display: block;
       color: white;
       text-align: center;
       padding: 14px 16px;
@@ -34,13 +34,15 @@
     }
 
     .main {
-      padding: 20px;
       text-align: center; /* Center align content */
+      padding: 20px;
     }
 
     .title {
       max-width: 100%;
       height: auto;
+      display: block; /* Ensure image is displayed as block level for responsiveness */
+      margin: 0 auto; /* Center align image */
     }
 
     .paragraph {
@@ -51,8 +53,9 @@
     /* Responsive adjustments */
     @media screen and (max-width: 768px) {
       .navbar a {
+        float: none;
         display: block;
-        padding: 10px 0;
+        text-align: center;
       }
       .title {
         width: 100%;
@@ -78,6 +81,7 @@
   </div>
 </body>
 </html>
+
 
 
 

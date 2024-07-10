@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="./css/Navbar.css" />
   <link rel="stylesheet" href="./css/homepage.css" />
   <style>
-    .blue-mist {
+    .cloud-container {
       position: fixed;
       top: 0;
       left: 0;
@@ -17,39 +17,56 @@
       overflow: hidden;
       z-index: -1;
     }
-    
-    .mist-layer {
+
+    .cloud {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(0, 0, 255, 0.3) 0%, rgba(255, 255, 255, 0) 80%);
-      filter: blur(150px);
-      opacity: 0.7;
-      animation: moveMist 60s linear infinite;
+      width: 200px;
+      height: 100px;
+      background: rgba(0, 0, 255, 0.1);
+      border-radius: 100px;
+      filter: blur(20px);
+      opacity: 0.8;
     }
 
-    .mist-layer:nth-child(2) {
-      animation-duration: 90s;
-      animation-direction: reverse;
+    .cloud-1 {
+      top: 10%;
+      left: -10%;
+      animation: moveClouds1 60s linear infinite;
     }
 
-    .mist-layer:nth-child(3) {
-      animation-duration: 120s;
+    .cloud-2 {
+      top: 30%;
+      left: -20%;
+      animation: moveClouds2 80s linear infinite;
     }
 
-    @keyframes moveMist {
-      0% { transform: translate(-50%, -50%); }
-      100% { transform: translate(-45%, -45%); }
+    .cloud-3 {
+      top: 50%;
+      left: -30%;
+      animation: moveClouds3 100s linear infinite;
+    }
+
+    @keyframes moveClouds1 {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(120%); }
+    }
+
+    @keyframes moveClouds2 {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(150%); }
+    }
+
+    @keyframes moveClouds3 {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(200%); }
     }
   </style>
 </head>
 <body>
-  <div class="blue-mist">
-    <div class="mist-layer"></div>
-    <div class="mist-layer"></div>
-    <div class="mist-layer"></div>
+  <div class="cloud-container">
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
   </div>
   <div class="navbar" id="navbar">
     <a href="index.html" id="index">Hauptseite</a>
@@ -64,7 +81,3 @@
   </div>
 </body>
 </html>
-
-
-
-

@@ -28,14 +28,4 @@ body {
   margin-bottom: 3px;
   margin-left: 30px;
 }
-.suraindex a:visited {
-  color: wheat;
-  font-style: 900;
-  text-decoration: none;
-}
-.suraindex a:hover {
-  text-decoration: none;
-  font-size: 2.01rem;
-  color: hsl(39, 77%, 73%);
-}
 

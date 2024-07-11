@@ -43,15 +43,15 @@
 /* Slide-in effect for navbar links */
 .navbar a {
   transform: translateX(-100%);
-  animation: slideIn 0.5s forwards;
+  animation: slideIn 0.1s forwards;
 }
 
 .navbar a:nth-child(1) {
-  animation-delay: 0.1s;
+  animation-delay: 0.01s;
 }
 
 .navbar a:nth-child(2) {
-  animation-delay: 0.2s;
+  animation-delay: 0.02s;
 }
 
 @keyframes slideIn {

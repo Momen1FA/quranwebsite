@@ -36,3 +36,7 @@
   user-select: none;
   text-shadow: black 1px 1px 50px;
 }
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}

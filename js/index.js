@@ -19,20 +19,4 @@ myCheckbox.addEventListener("change", function () {
     document.getElementById("darkss").textContent = "☀️";
   }
 });
-// index.js
 
-document.addEventListener("DOMContentLoaded", function() {
-  const links = document.querySelectorAll('.suraindex li a');
-
-  links.forEach(function(link) {
-    link.addEventListener('click', function() {
-      // Remove active class from all links
-      links.forEach(function(item) {
-        item.classList.remove('active');
-      });
-
-      // Add active class to the clicked link
-      this.classList.add('active');
-    });
-  });
-});

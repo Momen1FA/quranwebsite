@@ -8,8 +8,16 @@
   <link rel="stylesheet" href="./css/suraidex.css">
   <style>
     .suraindex li a {
-      color: rgb(255, 244, 123); /* Always green */
-      text-decoration: gold;
+      color: rgb(255, 244, 123); /* Yellow */
+      text-decoration: underline; /* Correct value */
+      transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
+    }
+
+    .suraindex li a:hover {
+      color: rgb(255, 255, 255); /* Change to white on hover */
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 
+                   0 0 12px rgba(255, 255, 255, 0.6), 
+                   0 0 16px rgba(255, 255, 255, 0.4); /* Glowing effect */
     }
   </style>
 </head>

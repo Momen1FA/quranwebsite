@@ -22,9 +22,7 @@
 
     .navbar a {
       margin: 0 10px; /* Spacing between the links */
-      transform: translateX(-100%);
-      animation: slideIn 0.25s forwards;
-      text-decoration: none; /* Ensure links do not underline */
+      text-decoration: none; /* Remove default underline */
       color: rgb(255, 244, 123); /* Yellow color */
       transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
     }
@@ -34,20 +32,6 @@
       text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 
                    0 0 12px rgba(255, 255, 255, 0.6), 
                    0 0 16px rgba(255, 255, 255, 0.4); /* Glowing effect */
-    }
-
-    .navbar a:nth-child(1) {
-      animation-delay: 0.04s;
-    }
-
-    .navbar a:nth-child(2) {
-      animation-delay: 0.08s;
-    }
-
-    @keyframes slideIn {
-      to {
-        transform: translateX(0);
-      }
     }
 
     .search-container {
@@ -99,10 +83,6 @@
       opacity: 1;
     }
 
-    .suraindex li a.slide-up:first-of-type {
-      transform: translateY(0);
-    }
-
     .nicht-gefunden {
       display: none;
       color: red; /* Change color as desired */
@@ -139,37 +119,35 @@
   <script>
     function searchSurah() {
       const searchTerm = document.getElementById('search-bar').value.toLowerCase().trim();
-      if (!searchTerm) {
-        document.getElementById('nicht-gefunden').style.display = 'block';
-        return; // Do nothing if the search bar is empty
-      } else {
-        document.getElementById('nicht-gefunden').style.display = 'none';
-      }
-
       const surahLinks = document.querySelectorAll('.suraindex li a');
       let foundCount = 0;
-      surahLinks.forEach((link, index) => {
+
+      if (!searchTerm) {
+        document.getElementById('nicht-gefunden').style.display = 'none';
+        surahLinks.forEach(link => {
+          link.classList.remove('hidden');
+          link.classList.remove('slide-up');
+        });
+        return; // Exit if search term is empty
+      }
+
+      surahLinks.forEach(link => {
         const linkText = link.textContent.toLowerCase();
         if (linkText.includes(searchTerm)) {
           foundCount++;
+          link.classList.remove('hidden');
+          link.classList.add('slide-up');
+          // Scroll to the first found link if it's not at the top
           if (foundCount === 1) {
-            link.classList.remove('hidden');
-            link.classList.add('slide-up');
-            // Check if it's not already at the top
-            if (index !== 0) {
-              slideToTop(link);
-            }
-          } else {
-            link.classList.add('hidden');
-            link.classList.remove('slide-up');
+            slideToTop(link);
           }
         } else {
-          link.classList.remove('slide-up'); // Remove slide-up class regardless
-          link.classList.remove('hidden'); // Ensure all links are visible
+          link.classList.add('hidden');
+          link.classList.remove('slide-up');
         }
       });
 
-      // Display "Nicht gefunden" if no results found
+      // Display "Nicht gefunden" message if no results found
       const nichtGefunden = document.getElementById('nicht-gefunden');
       if (foundCount === 0) {
         nichtGefunden.style.display = 'block';
@@ -209,6 +187,7 @@
   </script>
 </body>
 </html>
+
 
 
 

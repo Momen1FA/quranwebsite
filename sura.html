@@ -80,31 +80,19 @@
     }
 
     .suraindex li a {
-      display: inline-block; /* Make link inline block */
+      display: none; /* Initially hide all links */
       color: rgb(255, 244, 123); /* Yellow */
       text-decoration: none; /* Correct value */
       transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
     }
 
+    .suraindex li a.visible {
+      display: inline-block; /* Make visible */
+    }
+
     .suraindex li a:hover {
       color: white; /* Change to white on hover */
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Glow effect */
-    }
-
-    .hidden {
-      display: none; /* Hide non-matching items */
-    }
-
-    @keyframes shake {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(-5px); }
-      50% { transform: translateX(5px); }
-      75% { transform: translateX(-5px); }
-      100% { transform: translateX(0); }
-    }
-
-    .shake {
-      animation: shake 1s; /* Adjust animation duration as needed */
     }
   </style>
 </head>
@@ -144,7 +132,7 @@
         const linkText = link.textContent.toLowerCase();
         if (linkText.includes(searchTerm)) {
           found = true;
-          link.classList.remove('hidden');
+          link.classList.add('visible'); // Make matching link visible
           link.classList.add('shake'); // Add shake effect temporarily
 
           // Scroll to the found item
@@ -155,7 +143,7 @@
             link.classList.remove('shake');
           }, 1000);
         } else {
-          link.classList.add('hidden');
+          link.classList.remove('visible'); // Hide non-matching links
         }
       });
 
@@ -188,6 +176,7 @@
   </script>
 </body>
 </html>
+
 
 
 

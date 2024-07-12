@@ -24,6 +24,16 @@
       margin: 0 10px; /* Spacing between the links */
       transform: translateX(-100%);
       animation: slideIn 0.25s forwards;
+      text-decoration: none; /* Ensure links do not underline */
+      color: rgb(255, 244, 123); /* Yellow color */
+      transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
+    }
+
+    .navbar a:hover {
+      color: rgb(255, 255, 255); /* Change to white on hover */
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 
+                   0 0 12px rgba(255, 255, 255, 0.6), 
+                   0 0 16px rgba(255, 255, 255, 0.4); /* Glowing effect */
     }
 
     .navbar a:nth-child(1) {
@@ -104,8 +114,8 @@
 <body>
   <div class="navbar">
     <div>
-      <a href="index.html" id="index" onclick="slideUp(event)">Hauptseite</a>
-      <a href="sura.html" id="sura" onclick="slideUp(event)">Suren-Indizierung</a>
+      <a href="#" id="index" onclick="slideUp(event)">Hauptseite</a>
+      <a href="#" id="sura" onclick="slideUp(event)">Suren-Indizierung</a>
     </div>
     <div class="search-container">
       <input type="text" id="search-bar" placeholder="Suche die Suren..." onkeypress="handleKeyPress(event)">
@@ -129,7 +139,12 @@
   <script>
     function searchSurah() {
       const searchTerm = document.getElementById('search-bar').value.toLowerCase().trim();
-      if (!searchTerm) return; // Do nothing if the search bar is empty
+      if (!searchTerm) {
+        document.getElementById('nicht-gefunden').style.display = 'block';
+        return; // Do nothing if the search bar is empty
+      } else {
+        document.getElementById('nicht-gefunden').style.display = 'none';
+      }
 
       const surahLinks = document.querySelectorAll('.suraindex li a');
       let foundCount = 0;
@@ -181,7 +196,11 @@
 
     function slideUp(event) {
       event.preventDefault();
+      // Prevent link from opening when clicking
       const link = event.target;
+      if (link.tagName.toLowerCase() === 'a') {
+        event.preventDefault();
+      }
       link.style.transform = 'translateY(-100px)';
       setTimeout(() => {
         window.location.href = link.href;
@@ -190,6 +209,7 @@
   </script>
 </body>
 </html>
+
 
 
 

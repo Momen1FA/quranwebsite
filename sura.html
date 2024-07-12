@@ -126,12 +126,10 @@
       if (!searchTerm) return; // Do nothing if the search bar is empty
 
       const surahLinks = document.querySelectorAll('.suraindex li a');
-      let found = false;
 
       surahLinks.forEach(link => {
         const linkText = link.textContent.toLowerCase();
         if (linkText.includes(searchTerm)) {
-          found = true;
           link.classList.add('visible'); // Make matching link visible
           link.classList.add('shake'); // Add shake effect temporarily
 
@@ -149,6 +147,7 @@
 
       // Show "Nicht gefunden" if no results found
       const searchInput = document.getElementById('search-bar');
+      const found = Array.from(surahLinks).some(link => link.classList.contains('visible'));
       if (!found) {
         searchInput.value = ""; // Clear existing value
         searchInput.placeholder = "Nicht gefunden";
@@ -176,6 +175,7 @@
   </script>
 </body>
 </html>
+
 
 
 

@@ -92,6 +92,13 @@
     .suraindex li a.slide-up:first-of-type {
       transform: translateY(0);
     }
+
+    .nicht-gefunden {
+      display: none;
+      color: red; /* Change color as desired */
+      font-weight: bold;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -117,6 +124,7 @@
       <li><a href="./suar/Surah Al-Falaq.html">Sure "Al-Falaq" (Surah Al-Falaq)</a></li>
       <li><a href="./suar/Ikhlas.html">Sure "Al-Ikhlas" (Al-Ikhlas)</a></li>
     </ul>
+    <div class="nicht-gefunden" id="nicht-gefunden">Nicht gefunden</div>
   </div>
   <script>
     function searchSurah() {
@@ -141,8 +149,8 @@
             link.classList.remove('slide-up');
           }
         } else {
-          link.classList.add('hidden');
-          link.classList.remove('slide-up');
+          link.classList.remove('slide-up'); // Remove slide-up class regardless
+          link.classList.remove('hidden'); // Ensure all links are visible
         }
       });
 
@@ -182,6 +190,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 

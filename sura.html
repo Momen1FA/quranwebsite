@@ -56,6 +56,10 @@
       color: black; /* Black text for better contrast on white */
     }
 
+    .search-container input.nicht-gefunden {
+      background-color: rgba(255, 0, 0, 0.1); /* Light red background */
+    }
+
     .search-container button {
       padding: 6px 10px;
       border: none;
@@ -154,7 +158,12 @@
       // Show "Nicht gefunden" if no results found
       const searchInput = document.getElementById('search-bar');
       if (foundCount === 0) {
-        searchInput.value = "Nicht gefunden";
+        searchInput.value = ""; // Clear existing value
+        searchInput.placeholder = "Nicht gefunden";
+        searchInput.classList.add('nicht-gefunden'); // Add class to change background
+      } else {
+        searchInput.placeholder = "Search Surah..."; // Restore placeholder text
+        searchInput.classList.remove('nicht-gefunden'); // Remove class if found
       }
     }
 
@@ -185,6 +194,7 @@
   </script>
 </body>
 </html>
+
 
 
 

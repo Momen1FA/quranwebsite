@@ -22,16 +22,22 @@
 
     .navbar a {
       margin: 0 10px; /* Spacing between the links */
-      text-decoration: none; /* Remove default underline */
-      color: rgb(255, 244, 123); /* Yellow color */
-      transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
+      transform: translateX(-100%);
+      animation: slideIn 0.25s forwards;
     }
 
-    .navbar a:hover {
-      color: rgb(255, 255, 255); /* Change to white on hover */
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 
-                   0 0 12px rgba(255, 255, 255, 0.6), 
-                   0 0 16px rgba(255, 255, 255, 0.4); /* Glowing effect */
+    .navbar a:nth-child(1) {
+      animation-delay: 0.04s;
+    }
+
+    .navbar a:nth-child(2) {
+      animation-delay: 0.08s;
+    }
+
+    @keyframes slideIn {
+      to {
+        transform: translateX(0);
+      }
     }
 
     .search-container {
@@ -83,23 +89,20 @@
       opacity: 1;
     }
 
-    .nicht-gefunden {
-      display: none;
-      color: red; /* Change color as desired */
-      font-weight: bold;
-      margin-top: 10px;
+    .suraindex li a.slide-up:first-of-type {
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
   <div class="navbar">
     <div>
-      <a href="#" id="index" onclick="slideUp(event)">Hauptseite</a>
-      <a href="#" id="sura" onclick="slideUp(event)">Suren-Indizierung</a>
+      <a href="index.html" id="index" onclick="slideUp(event)">Hauptseite</a>
+      <a href="sura.html" id="sura" onclick="slideUp(event)">Suren-Indizierung</a>
     </div>
     <div class="search-container">
-      <input type="text" id="search-bar" placeholder="Suche die Suren..." onkeypress="handleKeyPress(event)">
-      <button onclick="searchSurah()">Suchen</button>
+      <input type="text" id="search-bar" placeholder="Search Surah..." onkeypress="handleKeyPress(event)">
+      <button onclick="searchSurah()">Search</button>
     </div>
   </div>
   <div class="main" id="main">
@@ -114,46 +117,34 @@
       <li><a href="./suar/Surah Al-Falaq.html">Sure "Al-Falaq" (Surah Al-Falaq)</a></li>
       <li><a href="./suar/Ikhlas.html">Sure "Al-Ikhlas" (Al-Ikhlas)</a></li>
     </ul>
-    <div class="nicht-gefunden" id="nicht-gefunden">Nicht gefunden</div>
   </div>
   <script>
     function searchSurah() {
       const searchTerm = document.getElementById('search-bar').value.toLowerCase().trim();
+      if (!searchTerm) return; // Do nothing if the search bar is empty
+
       const surahLinks = document.querySelectorAll('.suraindex li a');
       let foundCount = 0;
-
-      if (!searchTerm) {
-        document.getElementById('nicht-gefunden').style.display = 'none';
-        surahLinks.forEach(link => {
-          link.classList.remove('hidden');
-          link.classList.remove('slide-up');
-        });
-        return; // Exit if search term is empty
-      }
-
-      surahLinks.forEach(link => {
+      surahLinks.forEach((link, index) => {
         const linkText = link.textContent.toLowerCase();
         if (linkText.includes(searchTerm)) {
           foundCount++;
-          link.classList.remove('hidden');
-          link.classList.add('slide-up');
-          // Scroll to the first found link if it's not at the top
           if (foundCount === 1) {
-            slideToTop(link);
+            link.classList.remove('hidden');
+            link.classList.add('slide-up');
+            // Check if it's not already at the top
+            if (index !== 0) {
+              slideToTop(link);
+            }
+          } else {
+            link.classList.add('hidden');
+            link.classList.remove('slide-up');
           }
         } else {
           link.classList.add('hidden');
           link.classList.remove('slide-up');
         }
       });
-
-      // Display "Nicht gefunden" message if no results found
-      const nichtGefunden = document.getElementById('nicht-gefunden');
-      if (foundCount === 0) {
-        nichtGefunden.style.display = 'block';
-      } else {
-        nichtGefunden.style.display = 'none';
-      }
     }
 
     function slideToTop(link) {
@@ -174,11 +165,7 @@
 
     function slideUp(event) {
       event.preventDefault();
-      // Prevent link from opening when clicking
       const link = event.target;
-      if (link.tagName.toLowerCase() === 'a') {
-        event.preventDefault();
-      }
       link.style.transform = 'translateY(-100px)';
       setTimeout(() => {
         window.location.href = link.href;
@@ -187,6 +174,7 @@
   </script>
 </body>
 </html>
+
 
 
 

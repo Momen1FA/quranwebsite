@@ -117,54 +117,45 @@
     </ul>
   </div>
   <script>
-    function searchSurah() {
-      const searchTerm = document.getElementById('search-bar').value.toLowerCase().trim();
-      if (!searchTerm) return; // Do nothing if the search bar is empty
+function searchSurah() {
+  const searchTerm = document.getElementById('search-bar').value.toLowerCase().trim();
+  if (!searchTerm) return; // Do nothing if the search bar is empty
 
-      const surahLinks = document.querySelectorAll('.suraindex li a');
-      let foundCount = 0;
-      surahLinks.forEach((link, index) => {
-        const linkText = link.textContent.toLowerCase();
-        if (linkText.includes(searchTerm)) {
-          foundCount++;
-          if (foundCount === 1) {
-            link.classList.remove('hidden');
-            link.classList.add('slide-up');
-            // Check if it's not already at the top
-            if (index !== 0) {
-              slideToTop(link);
-            }
-          } else {
-            link.classList.add('hidden');
-            link.classList.remove('slide-up');
-          }
-        } else {
-          link.classList.add('hidden');
-          link.classList.remove('slide-up');
-        }
-      });
-
-      // Show "Nicht gefunden" if no results found
-      const searchInput = document.getElementById('search-bar');
-      if (foundCount === 0) {
-        searchInput.value = ""; // Clear existing value
-        searchInput.placeholder = "Nicht gefunden";
-        searchInput.classList.add('nicht-gefunden'); // Add class to change background
+  const surahLinks = document.querySelectorAll('.suraindex li a');
+  let foundCount = 0;
+  surahLinks.forEach((link, index) => {
+    const linkText = link.textContent.toLowerCase();
+    if (linkText.includes(searchTerm)) {
+      foundCount++;
+      if (foundCount === 1) {
+        link.classList.remove('hidden');
+        link.classList.add('shake'); // Add class for shake effect
+        link.style.animationIterationCount = 'infinite'; // Make the shake continuous
+        link.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Scroll to the found item
       } else {
-        searchInput.placeholder = "Search Surah..."; // Restore placeholder text
-        searchInput.classList.remove('nicht-gefunden'); // Remove class if found
+        link.classList.add('hidden');
+        link.classList.remove('shake'); // Remove shake effect from other items
       }
+    } else {
+      link.classList.add('hidden');
+      link.classList.remove('shake'); // Remove shake effect from other items
     }
+  });
 
-    function slideToTop(link) {
-      link.style.transform = 'translateY(-100px)';
-      setTimeout(() => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }, 250);
-    }
+  // Show "Nicht gefunden" if no results found
+  const searchInput = document.getElementById('search-bar');
+  if (foundCount === 0) {
+    searchInput.value = ""; // Clear existing value
+    searchInput.placeholder = "Nicht gefunden";
+    searchInput.classList.add('nicht-gefunden'); // Add class to change background
+  } else {
+    searchInput.placeholder = "Search Surah..."; // Restore placeholder text
+    searchInput.classList.remove('nicht-gefunden'); // Remove class if found
+  }
+}
+
+
+   
 
     function handleKeyPress(event) {
       if (event.key === 'Enter') {
@@ -172,14 +163,7 @@
       }
     }
 
-    function slideUp(event) {
-      event.preventDefault();
-      const link = event.target;
-      link.style.transform = 'translateY(-100px)';
-      setTimeout(() => {
-        window.location.href = link.href;
-      }, 250);
-    }
+   
   </script>
 </body>
 </html>

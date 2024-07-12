@@ -19,12 +19,63 @@
                    0 0 12px rgba(255, 255, 255, 0.6), 
                    0 0 16px rgba(255, 255, 255, 0.4); /* Glowing effect */
     }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #333;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+    }
+
+    .navbar a:hover {
+      background-color: #575757;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-container input[type="text"] {
+      padding: 6px;
+      margin-right: 8px;
+      border: none;
+      border-radius: 4px;
+      background-color: rgba(0, 0, 255, 0.2); /* Transparent blue color */
+      color: white;
+    }
+
+    .search-container button {
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+      background-color: rgba(0, 0, 255, 0.5); /* Slightly darker transparent blue */
+      color: white;
+      cursor: pointer;
+    }
+
+    .search-container button:hover {
+      background-color: rgba(0, 0, 255, 0.7); /* Darker on hover */
+    }
   </style>
 </head>
 <body>
   <div class="navbar">
-    <a href="index.html" id="index">Hauptseite</a>
-    <a href="sura.html" id="sura">Suren-Indizierung</a>
+    <div>
+      <a href="index.html" id="index">Hauptseite</a>
+      <a href="sura.html" id="sura">Suren-Indizierung</a>
+    </div>
+    <div class="search-container">
+      <input type="text" id="search-bar" placeholder="Search Surah...">
+      <button onclick="searchSurah()">Search</button>
+    </div>
   </div>
   <div class="main" id="main">
     <ul class="suraindex">
@@ -39,7 +90,20 @@
       <li><a href="./suar/Ikhlas.html">Sure "Al-Ikhlas" (Al-Ikhlas)</a></li>
     </ul>
   </div>
-  <script src="./js/index.js"></script>
+  <script>
+    function searchSurah() {
+      const searchTerm = document.getElementById('search-bar').value.toLowerCase();
+      const surahLinks = document.querySelectorAll('.suraindex li a');
+      surahLinks.forEach(link => {
+        if (link.textContent.toLowerCase().includes(searchTerm)) {
+          link.style.display = 'block';
+        } else {
+          link.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
+
 

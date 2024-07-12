@@ -73,16 +73,6 @@
       color: rgb(255, 244, 123); /* Yellow */
       text-decoration: none; /* Correct value */
       transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
-    }
-
-    .suraindex li a:hover {
-      color: rgb(255, 255, 255); /* Change to white on hover */
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 
-                   0 0 12px rgba(255, 255, 255, 0.6), 
-                   0 0 16px rgba(255, 255, 255, 0.4); /* Glowing effect */
-    }
-
-    .suraindex li a {
       display: block;
       opacity: 1;
       transform: translateY(0);
@@ -97,6 +87,10 @@
     .suraindex li a.slide-up {
       transform: translateY(-100px);
       opacity: 1;
+    }
+
+    .suraindex li a.slide-up:first-of-type {
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -130,15 +124,37 @@
       if (!searchTerm) return; // Do nothing if the search bar is empty
 
       const surahLinks = document.querySelectorAll('.suraindex li a');
-      surahLinks.forEach(link => {
-        if (link.textContent.toLowerCase().includes(searchTerm)) {
-          link.classList.remove('hidden');
-          link.classList.add('slide-up');
+      let foundCount = 0;
+      surahLinks.forEach((link, index) => {
+        const linkText = link.textContent.toLowerCase();
+        if (linkText.includes(searchTerm)) {
+          foundCount++;
+          if (foundCount === 1) {
+            link.classList.remove('hidden');
+            link.classList.add('slide-up');
+            // Check if it's not already at the top
+            if (index !== 0) {
+              slideToTop(link);
+            }
+          } else {
+            link.classList.add('hidden');
+            link.classList.remove('slide-up');
+          }
         } else {
           link.classList.add('hidden');
           link.classList.remove('slide-up');
         }
       });
+    }
+
+    function slideToTop(link) {
+      link.style.transform = 'translateY(-100px)';
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }, 250);
     }
 
     function handleKeyPress(event) {
@@ -158,5 +174,6 @@
   </script>
 </body>
 </html>
+
 
 

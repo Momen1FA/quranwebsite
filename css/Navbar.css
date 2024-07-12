@@ -59,6 +59,10 @@
     transform: translateX(0);
   }
 }
+.hidden {
+  display: none; /* Hide non-matching items */
+}
+
 @keyframes shake {
   0% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
@@ -68,5 +72,6 @@
 }
 
 .shake {
-  animation: shake 0.5s ease-in-out;
+  animation: shake 1s; /* Adjust animation duration as needed */
 }
+

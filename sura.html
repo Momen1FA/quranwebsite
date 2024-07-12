@@ -10,12 +10,17 @@
     .navbar {
       background-color: white; /* White navbar */
       display: flex;
-      justify-content: space-between;
+      justify-content: center; /* Center the links */
       align-items: center;
       padding: 10px 20px;
     }
 
+    .navbar div {
+      display: flex;
+    }
+
     .navbar a {
+      margin: 0 10px; /* Spacing between the links */
       transform: translateX(-100%);
       animation: slideIn 0.25s forwards;
     }
@@ -35,9 +40,10 @@
     }
 
     .search-container {
+      position: absolute;
+      right: 20px;
       display: flex;
       align-items: center;
-      margin-left: auto; /* Push search bar to the right */
     }
 
     .search-container input[type="text"] {
@@ -86,13 +92,18 @@
       opacity: 0;
       transform: translateY(100px);
     }
+
+    .suraindex li a.slide-up {
+      transform: translateY(-100px);
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
   <div class="navbar">
     <div>
-      <a href="index.html" id="index">Hauptseite</a>
-      <a href="sura.html" id="sura">Suren-Indizierung</a>
+      <a href="index.html" id="index" onclick="slideUp(event)">Hauptseite</a>
+      <a href="sura.html" id="sura" onclick="slideUp(event)">Suren-Indizierung</a>
     </div>
     <div class="search-container">
       <input type="text" id="search-bar" placeholder="Search Surah..." onkeypress="handleKeyPress(event)">
@@ -119,8 +130,10 @@
       surahLinks.forEach(link => {
         if (link.textContent.toLowerCase().includes(searchTerm)) {
           link.classList.remove('hidden');
+          link.classList.add('slide-up');
         } else {
           link.classList.add('hidden');
+          link.classList.remove('slide-up');
         }
       });
     }
@@ -130,6 +143,16 @@
         searchSurah();
       }
     }
+
+    function slideUp(event) {
+      event.preventDefault();
+      const link = event.target;
+      link.style.transform = 'translateY(-100px)';
+      setTimeout(() => {
+        window.location.href = link.href;
+      }, 250);
+    }
   </script>
 </body>
 </html>
+

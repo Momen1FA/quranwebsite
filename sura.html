@@ -150,6 +150,12 @@
           link.classList.remove('slide-up');
         }
       });
+
+      // Show "Nicht gefunden" if no results found
+      const searchInput = document.getElementById('search-bar');
+      if (foundCount === 0) {
+        searchInput.value = "Nicht gefunden";
+      }
     }
 
     function slideToTop(link) {

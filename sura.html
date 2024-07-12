@@ -135,10 +135,10 @@
           // Scroll to the found item
           link.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-          // Remove shake effect after 1 second
+          // Remove shake effect after 2 second
           setTimeout(() => {
             link.classList.remove('shake');
-          }, 1000);
+          }, 2000);
         } else {
           link.classList.remove('visible'); // Hide non-matching links
         }
@@ -152,7 +152,7 @@
         searchInput.placeholder = "Nicht gefunden";
         searchInput.classList.add('nicht-gefunden'); // Add class to change background
       } else {
-        searchInput.placeholder = "Search Surah..."; // Restore placeholder text
+        searchInput.placeholder = "Suchen die Suren..."; // Restore placeholder text
         searchInput.classList.remove('nicht-gefunden'); // Remove class if found
       }
     }

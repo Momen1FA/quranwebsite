@@ -101,8 +101,8 @@
       <a href="sura.html" id="sura" onclick="slideUp(event)">Suren-Indizierung</a>
     </div>
     <div class="search-container">
-      <input type="text" id="search-bar" placeholder="Search Surah..." onkeypress="handleKeyPress(event)">
-      <button onclick="searchSurah()">Search</button>
+      <input type="text" id="search-bar" placeholder="Suche die Suren..." onkeypress="handleKeyPress(event)">
+      <button onclick="searchSurah()">Suchen</button>
     </div>
   </div>
   <div class="main" id="main">
@@ -145,6 +145,14 @@
           link.classList.remove('slide-up');
         }
       });
+
+      // Display "Nicht gefunden" if no results found
+      const nichtGefunden = document.getElementById('nicht-gefunden');
+      if (foundCount === 0) {
+        nichtGefunden.style.display = 'block';
+      } else {
+        nichtGefunden.style.display = 'none';
+      }
     }
 
     function slideToTop(link) {
@@ -174,6 +182,7 @@
   </script>
 </body>
 </html>
+
 
 
 

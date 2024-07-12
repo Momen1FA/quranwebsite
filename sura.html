@@ -13,6 +13,7 @@
       justify-content: center; /* Center the links */
       align-items: center;
       padding: 10px 20px;
+      position: relative;
     }
 
     .navbar div {
@@ -125,7 +126,9 @@
   </div>
   <script>
     function searchSurah() {
-      const searchTerm = document.getElementById('search-bar').value.toLowerCase();
+      const searchTerm = document.getElementById('search-bar').value.toLowerCase().trim();
+      if (!searchTerm) return; // Do nothing if the search bar is empty
+
       const surahLinks = document.querySelectorAll('.suraindex li a');
       surahLinks.forEach(link => {
         if (link.textContent.toLowerCase().includes(searchTerm)) {
@@ -155,4 +158,5 @@
   </script>
 </body>
 </html>
+
 

@@ -74,33 +74,21 @@
       background-color: rgba(0, 0, 255, 0.7); /* Darker on hover */
     }
 
+    .suraindex li {
+      list-style-type: none; /* Remove default list style */
+      margin-bottom: 10px; /* Space between items */
+    }
+
     .suraindex li a {
+      display: inline-block; /* Make link inline block */
       color: rgb(255, 244, 123); /* Yellow */
       text-decoration: none; /* Correct value */
       transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-      transition: transform 0.5s, opacity 0.5s;
     }
 
     .suraindex li a:hover {
       color: white; /* Change to white on hover */
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Glow effect */
-    }
-
-    .suraindex li a.hidden {
-      opacity: 0;
-      transform: translateY(100px);
-    }
-
-    .suraindex li a.slide-up {
-      transform: translateY(-100px);
-      opacity: 1;
-    }
-
-    .suraindex li a.slide-up:first-of-type {
-      transform: translateY(0);
     }
   </style>
 </head>
@@ -195,6 +183,7 @@
   </script>
 </body>
 </html>
+
 
 
 

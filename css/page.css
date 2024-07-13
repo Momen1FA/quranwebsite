@@ -40,3 +40,30 @@ body {
   height: 60vh;
   width: 70vw;
 }
+/* page.css */
+
+.main {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1200px; /* Increases the main content area width */
+}
+
+.aside {
+  flex: 1; /* Takes up remaining space */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.player {
+  flex: 2; /* Takes up twice the space of the aside */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Smooth transitions */
+.main, .aside, .player {
+  transition: all 0.3s ease-in-out;
+}

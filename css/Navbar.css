@@ -72,6 +72,6 @@
 }
 
 .shake {
-  animation: shake 1s; /* Adjust animation duration as needed */
+  animation: shake 1.5s; /* Adjust animation duration as needed */
 }
 

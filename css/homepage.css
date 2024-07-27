@@ -40,5 +40,19 @@ body {
     opacity: 1;
   }
 }
+/* Mobile Styles */
+@media (max-width: 600px) {
+  .main {
+    padding: 10px;
+  }
+
+  .paragraph {
+    text-align: left;
+  }
+
+  .paragraph p {
+    font-size: 14px;
+  }
+}
 
 

@@ -74,4 +74,15 @@
 .shake {
   animation: shake 1.5s; /* Adjust animation duration as needed */
 }
+/* Mobile Styles */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar a {
+    padding: 10px;
+    text-align: left;
+  }
+}
 
